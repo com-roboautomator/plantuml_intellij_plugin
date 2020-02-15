@@ -1,0 +1,88 @@
+<!--
+  ~    Copyright 2020 RoboAutomator
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<idea-plugin url="https://github.com/com-roboautomator/plantuml_intellij_plugin">
+
+    <!-- Plugin name. It should be short and descriptive but does
+         not have to be identical to the name of the JAR file.
+         Displayed in the "Plugins" settings dialog and the plugin repository Web interface. -->
+    <name>Plant UML Helper</name>
+
+    <!-- Unique identifier of the plugin. Should be FQN.
+         Cannot be changed between the plugin versions.
+         If not specified, assumed to be equal to <name>.This can have brittle results. -->
+    <id>com.roboautomator.plantuml</id>
+
+    <!-- Description of the plugin.
+         Should be short and to the point.
+         Start the description with a verb in present simple form such as
+         "integrates", "synchronizes", "adds support for" or "lets you view".
+         Don’t use marketing adjectives like “simple”, “lightweight”, or “professional”.
+         Don’t repeat the name of the plugin.
+         For plugins that add language/platform/framework support, the description MUST specify
+         the version of the corresponding language/platform/framework.
+         Don't mention the IDE compatibility. E.g. don't say "Adds support to IntelliJ IDEA for..."
+         Displayed in the "Plugins" settings dialog and the plugin repository Web interface.
+         Simple HTML elements can be included between <![CDATA[  ]]> tags.  -->
+    <description>Syntax highlighting, viewer, and validation for PlantUML scripts.</description>
+
+    <!-- Plugin version
+         Recommended format is BRANCH.BUILD.FIX (MAJOR.MINOR.FIX)
+         Displayed in the "Plugins" settings dialog and the plugin repository Web interface.  -->
+    <version>0.1.0-SNAPSHOT</version>
+
+    <!-- The vendor of the plugin.
+         The optional "url" attribute specifies the URL of the vendor homepage.
+         The optional "email" attribute specifies the e-mail address of the vendor.
+         Displayed in the "Plugins" settings dialog and the plugin repository Web interface. -->
+    <vendor url="https://www.robo-automator.com"
+            email="fishey2b@gmail.com">RoboAutomator</vendor>
+
+    <!-- Mandatory dependencies on plugins or modules.
+         The FQN module names in <depends> elements are used to determine IDE compatibility for the plugin.
+         Include at least the module shown below to indicate compatibility with IntelliJ Platform-based products.
+         Also include dependencies on other plugins as needed.
+         See "Compatibility with Multiple Products" and "Plugin Dependencies" for more information.  -->
+    <depends>com.intellij.modules.platform</depends>
+    <!--    <depends>com.third.party.plugin</depends>-->
+
+    <!-- Optional dependency on another plugin.
+         If the plugin with the "com.MySecondPlugin" ID is installed, the contents of mysecondplugin.xml
+         (the format of this file conforms to the format of plugin.xml) will be loaded. -->
+    <!--    <depends optional="true" config-file="mysecondplugin.xml">com.MySecondPlugin</depends>-->
+
+    <!-- Minimum and maximum build of IDE compatible with the plugin -->
+    <idea-version since-build="192" until-build="192.*"/>
+
+    <!-- Resource bundle (/messages/MyPluginBundle.properties) to be used
+         with `key` attributes in extension points and implicit keys like
+         `action.[pluginID].[ActionID].text` -->
+    <!--    <resource-bundle>messages.MyPluginBundle</resource-bundle>-->
+
+    <!-- Actions   -->
+    <!--    <actions>-->
+    <!--        <action id="PlantUML.ComponentImplementation" class="com.roboautomator.plantuml.component.ComponentImplementation" text="View Plant UML" description="Opens viewer">-->
+    <!--            <keyboard-shortcut first-keystroke="control alt G" second-keystroke="C" keymap="$default"/>-->
+    <!--        </action>-->
+    <!--    </actions>-->
+
+    <!-- Add Language File Type Support for plantuml file types -->
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="PlantUML file" implementationClass="com.roboautomator.plantuml.language.PlantUMLFileType"
+                  fieldName="INSTANCE" language="PlantUML" extensions="plantuml"/>
+    </extensions>
+
+</idea-plugin>
